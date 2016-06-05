@@ -243,9 +243,9 @@ class XGBModel(XGBModelBase):
                 eval_metric = None
             else:
                 params.update({'eval_metric': eval_metric})
-
+        print "debuging..."
         self._Booster = train(params, trainDmatrix,
-                              self.n_estimators, evals=evals,
+                              self.n_estimators, evals=evals, obj=self.objective,
                               early_stopping_rounds=early_stopping_rounds,
                               evals_result=evals_result, obj=obj, feval=feval,
                               verbose_eval=verbose)
